@@ -1,0 +1,233 @@
+@import url(./properties.css);
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--secondary-color);
+  color: var(--primary-color);
+  font-family: "Lato", sans-serif;
+}
+
+/** ----- INDEX - HEADER PROPERTIES ----- */
+
+/** ----- HEADER ----- */
+header {
+  padding: 12px 24px;
+  background: var(--primary-color);
+  color: var(--secondary-color);
+  position: sticky;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 800;
+  z-index: 10;
+  border-bottom: 2px solid var(--secondary-color);
+}
+
+/* Fullscreen Overlay Nav Menu */
+.overlay {
+  height: 0%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: var(--secondary-color);
+  color: var(--primary-color);
+  overflow: hidden;
+  transition: var(--ui-transition);
+}
+
+/* Background video for overlay only */
+#overlay-background {
+  position: absolute; /* stays INSIDE the overlay */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1; /* behind menu links */
+  pointer-events: none; /* video no longer blocks clicks */
+}
+
+.overlay-content {
+  position: relative;
+  top: 24%;
+  width: 100%;
+  text-align: center;
+  margin-top: 24px;
+  z-index: 2; /* above video */
+}
+
+.overlay-content a {
+  padding: 12px 6px;
+  font-size: 36px;
+  display: block;
+}
+
+.overlay .closebtn {
+  color: var(--secondary-color);
+  position: absolute;
+  top: 6px;
+  right: 18px;
+  font-size: 48px;
+  z-index: 3;
+}
+
+/** ----- HERO ----- */
+#hero {
+  padding: 48px 24px;
+  height: 84vh;
+  background: url(../gallery/images/hero.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: var(--primary-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#hero .subtitle {
+  opacity: 0.85;
+}
+
+.hero-cta {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+/** ----- ABOUT ----- */
+.about-links {
+  align-items: center;
+}
+
+/** ----- STUDIO WORKS ----- */
+/* --- Gallery Tile --- */
+.gallery {
+  border: 2px solid var(--secondary-color);
+  background: var(--secondary-color);
+  color: var(--primary-color);
+  transition: var(--action-transition);
+  overflow: hidden; /* keep everything contained */
+}
+.gallery:hover {
+  background: var(--primary-color);
+  color: var(--secondary-color);
+}
+
+/* --- Image wrapper ensures stable layout --- */
+.img-wrap {
+  width: 100%;
+  aspect-ratio: 16 / 10; /* adjustable: 1/1, 4/3, etc. */
+  overflow: hidden;
+}
+
+/* --- Image behaviour --- */
+.gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* the magic */
+  display: block;
+}
+
+/* --- Description --- */
+.desc {
+  padding: 18px 30px;
+  text-align: center;
+  font-weight: 800;
+}
+
+/** ----- CV / RESUME ----- */
+.cv-cta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* CONTACT FORM */
+.contact-form {
+  max-width: 600px;
+  margin: 24px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.contact-form label {
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+  color: inherit;
+}
+
+.contact-form input,
+.contact-form textarea {
+  margin-top: 6px;
+  padding: 12px;
+  font-size: 18px;
+  border: 2px solid var(--primary-color);
+  background: transparent;
+  color: inherit;
+  border-radius: 6px;
+  transition: var(--action-transition);
+}
+
+section:nth-child(odd) .contact-form input,
+section:nth-child(odd) .contact-form textarea {
+  border-color: var(--secondary-color);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--hover-color);
+  outline: none;
+  border-radius: 12px;
+}
+
+/** ----- FOOTER ----- */
+footer {
+  padding: 12px 18px;
+  background: var(--primary-color);
+  color: var(--secondary-color);
+  font-size: 18px;
+  font-weight: 600;
+  border: 2px solid var(--secondary-color);
+}
+
+.footer-grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-grid a {
+  display: block;
+}
+
+p.copyright {
+  margin: 24px 24px 12px;
+  text-align: center;
+  font-size: 14px;
+}
+
+/** ----- MOBILE PROPERTIES ----- */
+@media screen and (max-width: 780px) {
+  .overlay-content .container a {
+    font-size: 12px;
+  }
+  .overlay .closebtn {
+    top: 0px;
+    right: 12px;
+  }
+  .cv-grid,
+  .dual-column {
+    grid-template-columns: 1fr;
+  }
+}
